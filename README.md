@@ -1,0 +1,1 @@
+# CSRF_Prevention--Double_Submit_Cookies_Pattern
