@@ -68,8 +68,8 @@
 
                                         }
                                     </script>
-						
-                                      <?php
+									
+									 <?php
                                         //check whether user loged in or not 
                                         if(isset($_COOKIE['session_cookie'])) 
                                         {
@@ -78,39 +78,39 @@
                                                 <!-- CSRF Token -->
                                                     <input type='hidden' name='csrf_Token' id='csrf_Token' value=''>   
                                                 <!--  -->	
-                                                <div class='form-group row'>
-                                                	<label for='name' class='col-sm-2 col-form-label'>Full Name</label>
-                                                <div class='col-sm-10'>
-                                                    <input type='text' class='form-control' id='name' name='name' placeholder='Full Name' required>
+                                                  <div class='form-group row'>
+                                                	<label for='streetAddress' class='col-sm-3 col-form-label'>Street Address</label>
+                                                <div class='col-sm-9'>
+                                                    <input type='text' class='form-control' id='streetAddress' name='streetAddress' placeholder='Street Address' required>
                                                 </div>
                                                 </div>
                                               
-                                              	<div class='form-group row'>
-                                                    <label for='university' class='col-sm-2 col-form-label'>University</label>
-                                                <div class='col-sm-10'>
-                                                    <input type='text' class='form-control' id='university' name='university' placeholder='University' required>
+												<div class='form-group row'>
+                                                	<label for='city' class='col-sm-3 col-form-label'>City</label>
+                                                <div class='col-sm-9'>
+                                                    <input type='text' class='form-control' id='city' name='city' placeholder='City' required>
                                                 </div>
-                                              	</div>
-                    							
-                    							<div class='form-group row'>
-                                                    <label for='degree' class='col-sm-2 col-form-label'>Degree</label>
-                                                <div class='col-sm-10'>
-                                                    <input type='text' class='form-control' id='degree' name='degree' placeholder='Degree' required>
                                                 </div>
-                                              	</div>
-
-                                              	<div class='form-group row'>
-                                                    <label for='year' class='col-sm-2 col-form-label'>Year</label>
-                                                <div class='col-sm-10'>
-                                                    <input type='number' class='form-control' id='year' name='year' placeholder='Year' required>
+												
+												<div class='form-group row'>
+                                                	<label for='province' class='col-sm-3 col-form-label'>Province</label>
+                                                <div class='col-sm-9'>
+                                                    <input type='text' class='form-control' id='province' name='province' placeholder='Province' required>
                                                 </div>
-                                              	</div>
+                                                </div>
+												
+												<div class='form-group row'>
+                                                	<label for='postalCode' class='col-sm-3 col-form-label'>Postal Code</label>
+                                                <div class='col-sm-9'>
+                                                    <input type='text' class='form-control' id='postalCode' name='postalCode' placeholder='Postal Code' required>
+                                                </div>
+                                                </div>
 
                                                                 
                                                 <button type='submit' class='btn btn-primary' >Submit</button>
                                            </form>";
                                         }
-                                    ?>
+                                    ?>                                    
 				</div>
 			</div>
 		</div>								
