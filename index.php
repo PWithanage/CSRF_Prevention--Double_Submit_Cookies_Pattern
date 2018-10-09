@@ -3,7 +3,7 @@
   <head>
      <meta charset="utf-8">
 
-    <title>Double Submit Cookie Pattern</title>
+    <title>Double Submit Cookies Pattern</title>
 
     <link rel="stylesheet"  href="./public/css/bootstrap.min.css">
     <script src="./public/js/jquery-3.3.1.min.js"></script>
@@ -53,14 +53,14 @@
 
 <!--After User clicks login button credeintials will be submitted through a POST request.-->
 <?php
-	
+
   if(isset($_POST['submit']))
   {
     //Invoke login function
-	login();
+		login();
   }
 
-	//Login function validates the user input credentials
+  //Login function validates the user input credentials
 	function login()
 	{
 		$username='admin';
@@ -71,31 +71,35 @@
 		
 		if(($input_username == $username)&&($input_pwd == $password))
 		{
-			//After the user validation, session is started
+      		//After the user validation, session is started
 			session_set_cookie_params(300);
 			session_start();
 			session_regenerate_id();
-
-			//create the session cookie
+			
+		  	//create the session cookie
 			setcookie('session_cookie', session_id(), time() + 300, '/');
-
-			//Create the CSRF token for the session and store in the memory
-			$_SESSION['CSRF_Token'] = generateToken();
-
+			
+      		//generate CSRF Token
+			$token = generate_token();
+			
+      		//create CSRF token cookie
+      		setcookie('CSRF_token', $token, time() + 300, '/');
+			
 			//User is redirected to the update address page
 			header("Location:update.php");
-			exit;
+   		exit;		
 		}
 		else
 		{
-			//if credentials are invalid
+      		//if credentials are invalid
 			echo "<script>alert('Credentials are invalid!')</script>";
 		}
 	}
 	
-  //Generate CSRF token in server side
-  function generateToken()
-  {
-	 return sha1(base64_encode(openssl_random_pseudo_bytes(30)));
-  }
+	//Generate CSRF token in server side
+  	function generate_token()
+	{
+	  return sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+	}
+
 ?>

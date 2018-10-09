@@ -27,13 +27,13 @@
         <div class="col-md-5 mx-auto order-12">
 				<div class="card my-5 p-3 shadow">
 					<div class="card-body" align="center">		
-
 									<?php
                 						if(isset($_COOKIE['session_cookie']))
                 						{
                 							session_start();
-                						      //check whether the token in the post ethod equals to the token in the session
-                                        	if ($_POST['csrf_Token'] == $_COOKIE['csrf_token']) 
+											
+                						    //comparing the CSRF token submitted with the POST request and the value in the cookie.
+                                        	if ($_POST['csrf_Token'] == $_COOKIE['CSRF_token']) 
                 							{
                 								$streetAddress=$_POST['streetAddress'];
                 								$city=$_POST['city'];

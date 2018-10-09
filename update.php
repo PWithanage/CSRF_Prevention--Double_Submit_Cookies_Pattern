@@ -1,4 +1,4 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -38,10 +38,10 @@
 		<div class="col-md-6 mx-auto order-12">
 			<div class="card my-5 p-3 shadow">
 				<div class="card-body">
-					<h5 class="card-title text-center">Update your Address</h5>
-					
+					<h5 class="card-title text-center">Update your Address</h5>												
 									<script>
-                                        //this function will retrive the CSRF token from the CSRF cookie
+										
+                                        //Retrieve the CSRF token from the CSRF token cookie
                                         function getCookie(cname) 
                                         {
                                             var name = cname + "=";
@@ -61,18 +61,20 @@
                                             }
                                             return "";
                                         }
-                                        //this function set hidden CSRF input's value in the form 
+										
+                                        //Set hidden field value with the value taken from cookie 
                                         function submitForm(oFormElement)
                                         {
-                                            document.getElementById("csrf_Token").value=getCookie("csrf_token");
-
+                                            document.getElementById("csrf_Token").value=getCookie("CSRF_token");
                                         }
-                                    </script>
-									
+                                     </script>
+									 
 									 <?php
-                                        //check whether user loged in or not 
+                                         
                                         if(isset($_COOKIE['session_cookie'])) 
                                         {
+											//Update Address Form submission
+											//Here the CSRF token received from the cookie will be added to a hidden field
                                             echo "
                     						<form method='post' action='result.php' onsubmit='submitForm(this);'>
                                                 <!-- CSRF Token -->
@@ -105,12 +107,13 @@
                                                     <input type='text' class='form-control' id='postalCode' name='postalCode' placeholder='Postal Code' required>
                                                 </div>
                                                 </div>
-
                                                                 
-                                                <button type='submit' class='btn btn-primary' >Submit</button>
-                                           </form>";
+                                                <button type='submit' class='btn btn-primary btn-block mt-5' id='submit' name='submit'>Update</button>
+                                            </form>";
                                         }
-                                    ?>                                    
+                                    ?>   
+
+										
 				</div>
 			</div>
 		</div>								
