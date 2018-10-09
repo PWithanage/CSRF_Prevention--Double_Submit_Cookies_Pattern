@@ -39,79 +39,79 @@
 			<div class="card my-5 p-3 shadow">
 				<div class="card-body">
 					<h5 class="card-title text-center">Update your Address</h5>												
-									<script>
-										
-                                        //Retrieve the CSRF token from the CSRF token cookie
-                                        function getCookie(cname) 
-                                        {
-                                            var name = cname + "=";
-                                            var decodedCookie = decodeURIComponent(document.cookie);
-                                            var ca = decodedCookie.split(';');
-                                            for(var i = 0; i <ca.length; i++) 
-                                            {
-                                                var c = ca[i];
-                                                while (c.charAt(0) == ' ') 
-                                                {
-                                                    c = c.substring(1);
-                                                }
-                                                if (c.indexOf(name) == 0) 
-                                                {
-                                                    return c.substring(name.length, c.length);
-                                                }
-                                            }
-                                            return "";
-                                        }
-										
-                                        //Set hidden field value with the value taken from cookie 
-                                        function submitForm(oFormElement)
-                                        {
-                                            document.getElementById("csrf_Token").value=getCookie("CSRF_token");
-                                        }
-                                     </script>
+						<script>
+							
+                            //Retrieve the CSRF token from the CSRF token cookie
+                            function getCookie(cname) 
+                            {
+                                var name = cname + "=";
+                                var decodedCookie = decodeURIComponent(document.cookie);
+                                var ca = decodedCookie.split(';');
+                                for(var i = 0; i <ca.length; i++) 
+                                {
+                                    var c = ca[i];
+                                    while (c.charAt(0) == ' ') 
+                                    {
+                                        c = c.substring(1);
+                                    }
+                                    if (c.indexOf(name) == 0) 
+                                    {
+                                        return c.substring(name.length, c.length);
+                                    }
+                                }
+                                return "";
+                            }
+							
+                            //Set hidden field value with the value taken from cookie 
+                            function submitForm(FormElement)
+                            {
+                                document.getElementById("csrf_Token").value=getCookie("CSRF_token");
+                            }
+                         </script>
 									 
-									 <?php
-                                         
-                                        if(isset($_COOKIE['session_cookie'])) 
-                                        {
-											//Update Address Form submission
-											//Here the CSRF token received from the cookie will be added to a hidden field
-                                            echo "
-                    						<form method='post' action='result.php' onsubmit='submitForm(this);'>
-                                                <!-- CSRF Token -->
-                                                    <input type='hidden' name='csrf_Token' id='csrf_Token' value=''>   
-                                                <!--  -->	
-                                                  <div class='form-group row'>
-                                                	<label for='streetAddress' class='col-sm-3 col-form-label'>Street Address</label>
-                                                <div class='col-sm-9'>
-                                                    <input type='text' class='form-control' id='streetAddress' name='streetAddress' placeholder='Street Address' required>
-                                                </div>
-                                                </div>
-                                              
-												<div class='form-group row'>
-                                                	<label for='city' class='col-sm-3 col-form-label'>City</label>
-                                                <div class='col-sm-9'>
-                                                    <input type='text' class='form-control' id='city' name='city' placeholder='City' required>
-                                                </div>
-                                                </div>
-												
-												<div class='form-group row'>
-                                                	<label for='province' class='col-sm-3 col-form-label'>Province</label>
-                                                <div class='col-sm-9'>
-                                                    <input type='text' class='form-control' id='province' name='province' placeholder='Province' required>
-                                                </div>
-                                                </div>
-												
-												<div class='form-group row'>
-                                                	<label for='postalCode' class='col-sm-3 col-form-label'>Postal Code</label>
-                                                <div class='col-sm-9'>
-                                                    <input type='text' class='form-control' id='postalCode' name='postalCode' placeholder='Postal Code' required>
-                                                </div>
-                                                </div>
-                                                                
-                                                <button type='submit' class='btn btn-primary btn-block mt-5' id='submit' name='submit'>Update</button>
-                                            </form>";
-                                        }
-                                    ?>   
+						 <?php
+                             
+                            if(isset($_COOKIE['session_cookie'])) 
+                            {
+								//Update Address Form submission
+								//Here the CSRF token received from the cookie will be added to a hidden field
+                                echo "
+        						<form class='mt-5 mb-3' method='post' action='result.php' onsubmit='submitForm(this);'>
+                                    <!-- CSRF Token -->
+                                        <input type='hidden' name='csrf_Token' id='csrf_Token' value=''>   
+                                    <!--  -->	
+                                      <div class='form-group row'>
+                                    	<label for='streetAddress' class='col-sm-3 col-form-label'>Street Address</label>
+                                    <div class='col-sm-9'>
+                                        <input type='text' class='form-control' id='streetAddress' name='streetAddress' placeholder='Street Address' required>
+                                    </div>
+                                    </div>
+                                  
+									<div class='form-group row'>
+                                    	<label for='city' class='col-sm-3 col-form-label'>City</label>
+                                    <div class='col-sm-9'>
+                                        <input type='text' class='form-control' id='city' name='city' placeholder='City' required>
+                                    </div>
+                                    </div>
+									
+									<div class='form-group row'>
+                                    	<label for='province' class='col-sm-3 col-form-label'>Province</label>
+                                    <div class='col-sm-9'>
+                                        <input type='text' class='form-control' id='province' name='province' placeholder='Province' required>
+                                    </div>
+                                    </div>
+									
+									<div class='form-group row'>
+                                    	<label for='postalCode' class='col-sm-3 col-form-label'>Postal Code</label>
+                                    <div class='col-sm-9'>
+                                        <input type='text' class='form-control' id='postalCode' name='postalCode' placeholder='Postal Code' required>
+                                    </div>
+                                    </div>
+                                                    
+                                    <button type='submit' class='btn btn-primary btn-block mt-5' id='submit' name='submit'>Update</button>
+                                </form>";
+                            }
+                        ?>   
 
 										
 				</div>
